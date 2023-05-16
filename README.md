@@ -4,6 +4,8 @@
 
 ### Funcionalidades
 
-> Medir Velocidade
-> Geolocalização
-> Armazenar dados
+- [ ] Medir velocidade do percurso
+- [ ] Informar em tempo real trajeto realizado
+- [ ] Armazenar informações do percurso (localstorage)
+- [ ] Listar percursos ja realizado, contendo todas as informações (velocidade média, trajeto realizado, tempo de ativade, local, horario)
+- [ ] Calorias de acordo com a modalidade do percurso (Corrida, caminhada, ciclismo, etc)
