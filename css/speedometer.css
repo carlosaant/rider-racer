@@ -4,6 +4,39 @@ nav {
   padding-top: var(--padding-padrao);
 }
 
+.btn-close {
+  display: block;
+  padding: 1.2rem 2rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 3rem;
+}
+
+.btn-close::before {
+  content: '';
+  display: block;
+  position: relative;
+  width: 4rem;
+  height: 0.2rem;
+  background-color: red;
+  padding-top: 0.1rem;
+  left: -2rem;
+  transform: rotate(45deg);
+}
+.btn-close::after {
+  content: '';
+  display: block;
+  position: relative;
+  width: 4rem;
+  height: 0.2rem;
+  background-color: red;
+  padding-top: 0.1rem;
+  left: -2rem;
+  top: -0.4rem;
+  transform: rotate(-45deg);
+}
+
 .speedometer {
   display: flex;
   justify-content: center;
@@ -11,4 +44,16 @@ nav {
   padding-block: var(--padding-padrao);
 
   height: var(--height-speedometer);
+}
+.speedometer span {
+  font-size: 2rem;
+}
+
+#speed {
+  font-size: var(--speedometer-font-size);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
 }
