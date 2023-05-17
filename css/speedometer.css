@@ -19,7 +19,7 @@ nav {
   position: relative;
   width: 4rem;
   height: 0.2rem;
-  background-color: red;
+  background-color: var(--details-color);
   padding-top: 0.1rem;
   left: -2rem;
   transform: rotate(45deg);
@@ -30,7 +30,7 @@ nav {
   position: relative;
   width: 4rem;
   height: 0.2rem;
-  background-color: red;
+  background-color: var(--details-color);
   padding-top: 0.1rem;
   left: -2rem;
   top: -0.4rem;
@@ -44,6 +44,8 @@ nav {
   padding-block: var(--padding-padrao);
 
   height: var(--height-speedometer);
+
+  color: var(--text-color);
 }
 .speedometer span {
   font-size: 2rem;
