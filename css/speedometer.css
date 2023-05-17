@@ -19,7 +19,7 @@ nav {
   position: relative;
   width: 4rem;
   height: 0.2rem;
-  background-color: var(--details-color);
+  background-color: var(--suport-color);
   padding-top: 0.1rem;
   left: -2rem;
   transform: rotate(45deg);
@@ -30,7 +30,7 @@ nav {
   position: relative;
   width: 4rem;
   height: 0.2rem;
-  background-color: var(--details-color);
+  background-color: var(--suport-color);
   padding-top: 0.1rem;
   left: -2rem;
   top: -0.4rem;
@@ -55,7 +55,27 @@ nav {
   font-size: var(--speedometer-font-size);
 }
 
-.controls {
+.timer {
   display: flex;
   justify-content: center;
+  color: var(--text-color);
+  font-size: var(--timer-font-size);
+}
+
+.controls {
+  padding-top: calc(var(--padding-padrao) - 2rem);
+  display: flex;
+  justify-content: center;
+}
+
+.controls button {
+  width: 100%;
+  background-color: var(--suport-color);
+  color: var(--primary-color);
+  height: var(--padding-padrao);
+  border: none;
+  border-radius: 2px;
+  font-size: var(--button-font-size);
+  text-transform: uppercase;
+  overflow: hidden;
 }
