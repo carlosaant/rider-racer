@@ -1,7 +1,14 @@
-.wrapper {
-  width: min(50rem, 100%);
-  margin-left: auto;
-  margin-right: auto;
+nav {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: var(--padding-padrao);
+}
 
-  padding-inline: 1rem;
+.speedometer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: var(--padding-padrao);
+
+  height: var(--height-speedometer);
 }
