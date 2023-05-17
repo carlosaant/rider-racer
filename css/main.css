@@ -3,14 +3,16 @@
 
 :root {
   font-size: 62.5%;
-  --primary-color: #1e5128;
-  --details-color: #4e9f3d;
-  --text-color: #191a19;
-  --suport-color: #d8e9a8;
+  --primary-color: #191a19;
+  --details-color: #1e5128;
+  --suport-color: #4e9f3d;
+  --text-color: #d8e9a8;
 
   --font-family: 'Sora', sans-serif;
 
   --speedometer-font-size: 14rem;
+  --button-font-size: 3rem;
+  --timer-font-size: 1.2rem;
 
   --height-speedometer: 25rem;
   --padding-padrao: 5rem;
