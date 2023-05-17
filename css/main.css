@@ -12,9 +12,8 @@
 
   --font-family: 'Sora', sans-serif;
 
-  --h1-tam: 4rem;
-  --h2-tam: 2.4rem;
-  --nav-height: 7rem;
+  --height-speedometer: 25rem;
+  --padding-padrao: 5rem;
 }
 
 html {
@@ -24,4 +23,12 @@ html {
 body {
   font-family: var(--font-family);
   background-color: var(--secondary-color);
+}
+
+.wrapper {
+  width: min(50rem, 100%);
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-inline: 1rem;
 }
