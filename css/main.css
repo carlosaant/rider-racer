@@ -3,14 +3,14 @@
 
 :root {
   font-size: 62.5%;
-  --primary-color: #222025;
-  --secondary-color: #4e4c52;
-  --text-color: #f9eaff;
-  --menu-bg: #f5f6fa;
-  --suport-color: #00c9a4;
-  --suport-color-yellow: #f9f871;
+  --primary-color: #1e5128;
+  --details-color: #4e9f3d;
+  --text-color: #191a19;
+  --suport-color: #d8e9a8;
 
   --font-family: 'Sora', sans-serif;
+
+  --speedometer-font-size: 14rem;
 
   --height-speedometer: 25rem;
   --padding-padrao: 5rem;
@@ -22,7 +22,7 @@ html {
 
 body {
   font-family: var(--font-family);
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
 }
 
 .wrapper {
@@ -30,5 +30,5 @@ body {
   margin-left: auto;
   margin-right: auto;
 
-  padding-inline: 1rem;
+  padding-inline: 2rem;
 }
