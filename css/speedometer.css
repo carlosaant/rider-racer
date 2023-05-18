@@ -47,13 +47,28 @@ nav {
 
   color: var(--text-color);
 }
+
 .speedometer span {
   font-size: 2rem;
 }
 
 #speed {
   font-size: var(--speedometer-font-size);
+  /* position: relative; */
 }
+/* #speed::before {
+  content: '';
+  display: block;
+  background-color: var(--details-color);
+  width: calc(var(--height-speedometer) - 5rem);
+  height: calc(var(--height-speedometer) - 5rem);
+  border-radius: 50%;
+  z-index: -1;
+
+  position: absolute;
+  top: -3.3rem;
+  left: -2.2rem;
+} */
 
 .timer {
   display: flex;
@@ -73,9 +88,14 @@ nav {
   background-color: var(--suport-color);
   color: var(--primary-color);
   height: var(--padding-padrao);
-  border: none;
+  border: 1px solid var(--suport-color);
   border-radius: 2px;
   font-size: var(--button-font-size);
   text-transform: uppercase;
   overflow: hidden;
+}
+
+.controls button:active {
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
