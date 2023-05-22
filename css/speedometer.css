@@ -44,6 +44,8 @@ nav {
   /* padding-block: var(--padding-padrao); */
 
   /* height: var(--height-speedometer); */
+  flex-grow: 1;
+  /* ocupar o espaço disponivel */
 
   color: var(--text-color);
 }
@@ -79,6 +81,7 @@ nav {
 
 .controls {
   /* padding-top: calc(var(--padding-padrao) - 2rem); */
+  padding-block: calc(var(--padding-padrao) - 4rem);
   display: flex;
   justify-content: center;
 }
