@@ -19,7 +19,18 @@ document.addEventListener('DOMContentLoaded', function () {
       btnStartStop.textContent = 'Stop';
       //
       startCronometro();
-      // navigator.geolocation.watchPosition();
+      //
+      function handleSucess(position) {
+        console.log(position);
+        speedElement.innerText = position.coords.speed
+          ? position.coords.speed
+          : 0;
+      }
+      function handleError(error) {
+        console.log(error.msg);
+      }
+      const options = { enableHighAccuracy: true };
+      navigator.geolocation.watchPosition(handleSucess, handleError, options);
     }
   });
 
