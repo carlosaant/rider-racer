@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   let isRunning = false;
   let intervalId;
+  let watchId = null;
   const speedElement = document.querySelector('#speed');
   const btnStartStop = document.querySelector('#btnStartstop');
   const counterElement = document.querySelector('#counter');
@@ -13,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
       btnStartStop.textContent = 'Start';
       //
       stopCronometro();
+      navigator.geolocation.clearWatch(watchId);
+      watchId = null;
     } else {
       // Lógica para iniciar a ação
       isRunning = true;
@@ -30,7 +33,11 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(error.msg);
       }
       const options = { enableHighAccuracy: true };
-      navigator.geolocation.watchPosition(handleSucess, handleError, options);
+      watchId = navigator.geolocation.watchPosition(
+        handleSucess,
+        handleError,
+        options
+      );
     }
   });
 
