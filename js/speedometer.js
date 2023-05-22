@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
       function handleSucess(position) {
         console.log(position);
         speedElement.innerText = position.coords.speed
-          ? position.coords.speed
+          ? (position.coords.speed * 3.6).toFixed(1)
           : 0;
       }
       function handleError(error) {
