@@ -41,9 +41,9 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-block: var(--padding-padrao);
+  /* padding-block: var(--padding-padrao); */
 
-  height: var(--height-speedometer);
+  /* height: var(--height-speedometer); */
 
   color: var(--text-color);
 }
@@ -78,7 +78,7 @@ nav {
 }
 
 .controls {
-  padding-top: calc(var(--padding-padrao) - 2rem);
+  /* padding-top: calc(var(--padding-padrao) - 2rem); */
   display: flex;
   justify-content: center;
 }
