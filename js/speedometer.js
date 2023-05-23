@@ -10,36 +10,48 @@ document.addEventListener('DOMContentLoaded', function () {
   btnStartStop.addEventListener('click', () => {
     if (isRunning) {
       // Lógica para parar a ação
+      if (!watchId) return;
+      //
       isRunning = false;
       btnStartStop.textContent = 'Start';
       //
       stopCronometro();
-      navigator.geolocation.clearWatch(watchId);
-      watchId = null;
+      stopNavigator();
     } else {
       // Lógica para iniciar a ação
+      if (watchId) return;
+      //
       isRunning = true;
       btnStartStop.textContent = 'Stop';
       //
       startCronometro();
-      //
-      function handleSucess(position) {
-        console.log(position);
-        speedElement.innerText = position.coords.speed
-          ? (position.coords.speed * 3.6).toFixed(1)
-          : 0;
-      }
-      function handleError(error) {
-        console.log(error.msg);
-      }
-      const options = { enableHighAccuracy: true };
-      watchId = navigator.geolocation.watchPosition(
-        handleSucess,
-        handleError,
-        options
-      );
+      startNavigator();
     }
   });
+
+  // navigator
+  function startNavigator() {
+    function handleSucess(position) {
+      console.log(position);
+      speedElement.innerText = position.coords.speed
+        ? (position.coords.speed * 3.6).toFixed(1)
+        : 0;
+    }
+    function handleError(error) {
+      console.log(error.msg);
+    }
+    const options = { enableHighAccuracy: true };
+    watchId = navigator.geolocation.watchPosition(
+      handleSucess,
+      handleError,
+      options
+    );
+  }
+
+  function stopNavigator() {
+    navigator.geolocation.clearWatch(watchId);
+    watchId = null;
+  }
 
   // cronometro
   function startCronometro() {
