@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
       isRunning = false;
       btnStartStop.textContent = 'Start';
       //
-      stopCronometro();
+      stopSpeedometer();
       stopNavigator();
     } else {
       // Lógica para iniciar a ação
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
       isRunning = true;
       btnStartStop.textContent = 'Stop';
       //
-      startCronometro();
+      startSpeedometer();
       startNavigator();
     }
   });
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // cronometro
-  function startCronometro() {
+  function startSpeedometer() {
     let counter = 0;
     intervalId = setInterval(function () {
       counter++;
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
       counterElement.textContent = formattedCounter;
     }, 1000);
   }
-  function stopCronometro() {
+  function stopSpeedometer() {
     clearInterval(intervalId);
   }
 
