@@ -46,8 +46,12 @@ document.addEventListener('DOMContentLoaded', function () {
         : 0;
     }
     function handleError(error) {
-      console.log(error.msg);
-      alert(`ERROR(${error.code}): ${error.message}`);
+      console.log(`ERROR(${error.code}): ${error.message}`);
+      if (error.code == 1) {
+        alert(
+          'Acesso à localização negado. Por favor, verifique as configurações de privacidade do seu navegador para permitir a geolocalização e atualize a página.'
+        );
+      }
     }
     const options = { enableHighAccuracy: true };
     currentRide = createNewRide();
