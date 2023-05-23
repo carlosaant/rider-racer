@@ -23,13 +23,17 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     } else {
       // Lógica para iniciar a ação
-      if (watchId) return;
-      //
-      isRunning = true;
-      btnStartStop.textContent = 'Stop';
-      //
-      startSpeedometer();
-      startNavigator();
+      if (navigator.geolocation) {
+        if (watchId) return;
+        //
+        isRunning = true;
+        btnStartStop.textContent = 'Stop';
+        //
+        startSpeedometer();
+        startNavigator();
+      } else {
+        alert('A Geolocalização não é suportada pelo navegador.');
+      }
     }
   });
 
