@@ -1,8 +1,10 @@
 'use strict';
+
 document.addEventListener('DOMContentLoaded', function () {
   let isRunning = false;
   let intervalId;
   let watchId = null;
+  let currentRide = null;
   const speedElement = document.querySelector('#speed');
   const btnStartStop = document.querySelector('#btnStartstop');
   const counterElement = document.querySelector('#counter');
@@ -34,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // navigator
   function startNavigator() {
     function handleSucess(position) {
-      console.log(position);
+      addPosition(currentRide, position);
       speedElement.innerText = position.coords.speed
         ? (position.coords.speed * 3.6).toFixed(1)
         : 0;
@@ -43,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
       console.log(error.msg);
     }
     const options = { enableHighAccuracy: true };
+    currentRide = createNewRide();
     watchId = navigator.geolocation.watchPosition(
       handleSucess,
       handleError,
@@ -53,6 +56,8 @@ document.addEventListener('DOMContentLoaded', function () {
   function stopNavigator() {
     navigator.geolocation.clearWatch(watchId);
     watchId = null;
+    updateStopTime(currentRide);
+    currentRide = null;
   }
 
   // cronometro
