@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     function handleError(error) {
       console.log(error.msg);
-      alert('Erro ao obter Geolocalização: ', error.msg);
+      alert(`ERROR(${error.code}): ${error.message}`);
     }
     const options = { enableHighAccuracy: true };
     currentRide = createNewRide();
