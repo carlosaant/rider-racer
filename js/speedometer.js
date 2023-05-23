@@ -10,13 +10,15 @@ document.addEventListener('DOMContentLoaded', function () {
   btnStartStop.addEventListener('click', () => {
     if (isRunning) {
       // Lógica para parar a ação
-      if (!watchId) return;
-      //
-      isRunning = false;
-      btnStartStop.textContent = 'Start';
-      //
-      stopSpeedometer();
-      stopNavigator();
+      if (confirm('Deseja parar o percurso?')) {
+        if (!watchId) return;
+        //
+        isRunning = false;
+        btnStartStop.textContent = 'Start';
+        //
+        stopSpeedometer();
+        stopNavigator();
+      }
     } else {
       // Lógica para iniciar a ação
       if (watchId) return;
