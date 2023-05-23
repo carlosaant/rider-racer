@@ -1,0 +1,10 @@
+.wrapper {
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  padding-block: calc(var(--padding-padrao) - 2rem);
+  background-color: var(--details-color);
+}
