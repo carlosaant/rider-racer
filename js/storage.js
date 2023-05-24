@@ -41,3 +41,8 @@ function updateStopTime(rideID) {
   rideRecord.stopTime = Date.now();
   setLocalStorage(rideID, rideRecord);
 }
+
+function getAllRides() {
+  if (localStorage.length === 0) return null;
+  else return Object.entries(localStorage);
+}
