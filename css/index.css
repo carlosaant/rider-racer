@@ -4,7 +4,7 @@
 
 nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   padding-block: calc(var(--padding-padrao) - 2rem);
   /* background-color: var(--details-color); */
 }
@@ -17,7 +17,9 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  align-self: end;
+  position: absolute;
+  bottom: 2rem;
 }
 
 #btn-newRide::before {
