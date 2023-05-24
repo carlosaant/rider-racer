@@ -1,10 +1,38 @@
 .wrapper {
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 nav {
   display: flex;
   justify-content: flex-end;
   padding-block: calc(var(--padding-padrao) - 2rem);
+  /* background-color: var(--details-color); */
+}
+
+#btn-newRide {
   background-color: var(--details-color);
+  width: var(--padding-padrao);
+  height: var(--padding-padrao);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#btn-newRide::before {
+  content: '';
+  width: 0.4rem;
+  height: 3.5rem;
+  background-color: var(--text-color);
+  border-radius: 5px;
+}
+#btn-newRide::after {
+  content: '';
+  width: 3.5rem;
+  height: 0.4rem;
+  background-color: var(--text-color);
+  position: absolute;
+  left: 0.8rem;
+  border-radius: 5px;
 }
