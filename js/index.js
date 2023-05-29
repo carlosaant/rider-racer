@@ -46,4 +46,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
     return (maxSpeed * 3.6).toFixed(1);
   }
+
+  function getDistance(positions) {
+    const earthRadiusKm = 6371;
+    let totalDistance = 0;
+    for (i = 0; i < positions.length - 1; i++) {
+      //o laço só e executado se 2 posiçoes estiverem, no caso longitude e latitude
+      //quando i foi menor que o tamanho-1 ele nao vai acessar o ultimo elemento, oque ocasionaria um erro
+      const p1 = {
+        latitude: positions[i].latitude,
+        longitude: positions[i].longitude
+      };
+      const p2 = {
+        latitude: positions[i + 1].latitude,
+        longitude: positions[i + 1].longitude
+      };
+    }
+  }
 });
