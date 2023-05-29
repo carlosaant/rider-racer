@@ -20,7 +20,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const cityDiv = document.createElement('div');
         cityDiv.innerText = `${firstLocationData.city} - ${firstLocationData.principalSubdivision}`;
 
+        const maxSpeedDiv = document.createElement('div');
+        maxSpeedDiv.innerText = getMaxSpeed(ride.data);
+
         itemElement.appendChild(cityDiv);
+        itemElement.appendChild(maxSpeedDiv);
         listRideElement.appendChild(itemElement);
       });
     } else console.log('não ha itens a exibir');
@@ -30,5 +34,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`;
     const response = await fetch(url);
     return await response.json();
+  }
+
+  function getMaxSpeed(positions) {
+    let maxSpeed = 0;
+    positions.forEach(position => {
+      if (position.speed != null && position.speed > maxSpeed) {
+        maxSpeed = position.speed;
+      }
+    });
+
+    return (maxSpeed * 3.6).toFixed(1);
   }
 });
