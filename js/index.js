@@ -29,10 +29,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const durationDiv = document.createElement('div');
         durationDiv.innerText = getDuration(ride);
 
+        const dateDiv = document.createElement('div');
+        dateDiv.innerText = getStartDate(ride);
+
         itemElement.appendChild(cityDiv);
         itemElement.appendChild(maxSpeedDiv);
         itemElement.appendChild(distanceDiv);
         itemElement.appendChild(durationDiv);
+        itemElement.appendChild(dateDiv);
         listRideElement.appendChild(itemElement);
       });
     } else console.log('não ha itens a exibir');
@@ -100,5 +104,16 @@ document.addEventListener('DOMContentLoaded', function () {
         .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     }
     return formatDuration(interval);
+  }
+
+  function getStartDate(ride) {
+    const d = new Date(ride.startTime);
+    const day = d.toLocaleString('en-US', { day: 'numeric' });
+    const month = d.toLocaleString('en-US', { month: 'short' });
+    const year = d.toLocaleString('en-US', { year: 'numeric' });
+    const hour = d.toLocaleString('en-US', { hour: '2-digit', hour12: false });
+    const minute = d.toLocaleString('en-US', { minute: '2-digit' });
+
+    return `${month}:${day}/${year} - ${hour}:${minute}`;
   }
 });
