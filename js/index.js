@@ -27,13 +27,14 @@ document.addEventListener('DOMContentLoaded', function () {
         cityDiv.classList.add('cityInfo');
 
         const maxSpeedDiv = document.createElement('div');
-        maxSpeedDiv.innerText = getMaxSpeed(ride.data);
+        maxSpeedDiv.innerText = `Max. Speed: ${getMaxSpeed(ride.data)}`;
+        maxSpeedDiv.classList.add('infoDetails');
 
         const distanceDiv = document.createElement('div');
-        distanceDiv.innerText = getDistance(ride.data);
+        distanceDiv.innerText = `Distance: ${getDistance(ride.data)}`;
 
         const durationDiv = document.createElement('div');
-        durationDiv.innerText = getDuration(ride);
+        durationDiv.innerText = `Duration: ${getDuration(ride)}`;
 
         const dateDiv = document.createElement('div');
         dateDiv.innerText = getStartDate(ride);
