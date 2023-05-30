@@ -23,8 +23,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const maxSpeedDiv = document.createElement('div');
         maxSpeedDiv.innerText = getMaxSpeed(ride.data);
 
+        const distanceDiv = document.createElement('div');
+        distanceDiv.innerText = getDistance(ride.data);
+
         itemElement.appendChild(cityDiv);
         itemElement.appendChild(maxSpeedDiv);
+        itemElement.appendChild(distanceDiv);
         listRideElement.appendChild(itemElement);
       });
     } else console.log('não ha itens a exibir');
@@ -50,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function getDistance(positions) {
     const earthRadiusKm = 6371;
     let totalDistance = 0;
-    for (i = 0; i < positions.length - 1; i++) {
+    for (let i = 0; i < positions.length - 1; i++) {
       //o laço só e executado se 2 posiçoes estiverem, no caso longitude e latitude
       //quando i foi menor que o tamanho-1 ele nao vai acessar o ultimo elemento, oque ocasionaria um erro
       const p1 = {
