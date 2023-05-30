@@ -26,9 +26,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const distanceDiv = document.createElement('div');
         distanceDiv.innerText = getDistance(ride.data);
 
+        const durationDiv = document.createElement('div');
+        durationDiv.innerText = getDuration(ride);
+
         itemElement.appendChild(cityDiv);
         itemElement.appendChild(maxSpeedDiv);
         itemElement.appendChild(distanceDiv);
+        itemElement.appendChild(durationDiv);
         listRideElement.appendChild(itemElement);
       });
     } else console.log('não ha itens a exibir');
@@ -84,5 +88,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     return totalDistance.toFixed(2);
+  }
+
+  function getDuration(ride) {
+    const interval = ride.stopTime - ride.startTime;
+    return formatDuration(interval);
+  }
+
+  function formatDuration(duration) {
+    const minutes = Math.floor(duration / 60000);
+    const seconds = Math.floor((duration % 60000) / 1000);
+    return `${minutes
+      .toString()
+      .padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
   }
 });
