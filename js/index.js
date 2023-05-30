@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const mapDiv = document.createElement('div');
         const contentInfosDiv = document.createElement('div');
         mapDiv.classList.add('mapDiv');
+        contentInfosDiv.classList.add('dataInfosDiv');
 
         const cityDiv = document.createElement('div');
         cityDiv.innerText = `${firstLocationData.city} - ${firstLocationData.principalSubdivision}`;
