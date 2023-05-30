@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', function () {
         cityDiv.classList.add('cityInfo');
 
         const maxSpeedDiv = document.createElement('div');
-        maxSpeedDiv.innerText = `Max. Speed: ${getMaxSpeed(ride.data)}`;
+        maxSpeedDiv.innerText = `Max. Speed: ${getMaxSpeed(ride.data)} Km/h`;
         maxSpeedDiv.classList.add('infoDetails');
 
         const distanceDiv = document.createElement('div');
-        distanceDiv.innerText = `Distance: ${getDistance(ride.data)}`;
+        distanceDiv.innerText = `Distance: ${getDistance(ride.data)} Km`;
 
         const durationDiv = document.createElement('div');
         durationDiv.innerText = `Duration: ${getDuration(ride)}`;
