@@ -55,6 +55,7 @@ nav {
 
 #rideList li {
   background-color: #fff;
+  box-shadow: 0.3rem 0.3rem var(--text-color);
   color: var(--primary-color);
   padding: 1rem;
   border-radius: 5px;
