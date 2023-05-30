@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
         Math.sin(deltaLongitude / 2) *
           Math.sin(deltaLongitude / 2) *
           Math.cos(toRadius(p1.latitude)) *
-          Math.cos(toRadius(p1.latitude));
+          Math.cos(toRadius(p2.latitude));
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
       const distance = earthRadiusKm * c;
       totalDistance += distance;
@@ -83,6 +83,6 @@ document.addEventListener('DOMContentLoaded', function () {
       return (degree * Math.PI) / 180;
     }
 
-    return totalDistance;
+    return totalDistance.toFixed(2);
   }
 });
