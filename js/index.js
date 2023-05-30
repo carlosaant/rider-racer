@@ -17,8 +17,13 @@ document.addEventListener('DOMContentLoaded', function () {
         ride.id = id;
         const itemElement = document.createElement('li');
         itemElement.id = ride.id;
+        const mapDiv = document.createElement('div');
+        const contentInfosDiv = document.createElement('div');
+        mapDiv.classList.add('mapDiv');
+
         const cityDiv = document.createElement('div');
         cityDiv.innerText = `${firstLocationData.city} - ${firstLocationData.principalSubdivision}`;
+        cityDiv.classList.add('cityInfo');
 
         const maxSpeedDiv = document.createElement('div');
         maxSpeedDiv.innerText = getMaxSpeed(ride.data);
@@ -31,12 +36,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const dateDiv = document.createElement('div');
         dateDiv.innerText = getStartDate(ride);
+        dateDiv.classList.add('dateInfo');
 
-        itemElement.appendChild(cityDiv);
-        itemElement.appendChild(maxSpeedDiv);
-        itemElement.appendChild(distanceDiv);
-        itemElement.appendChild(durationDiv);
-        itemElement.appendChild(dateDiv);
+        contentInfosDiv.appendChild(cityDiv);
+        contentInfosDiv.appendChild(maxSpeedDiv);
+        contentInfosDiv.appendChild(distanceDiv);
+        contentInfosDiv.appendChild(durationDiv);
+        contentInfosDiv.appendChild(dateDiv);
+        itemElement.appendChild(mapDiv);
+        itemElement.appendChild(contentInfosDiv);
         listRideElement.appendChild(itemElement);
       });
     } else console.log('não ha itens a exibir');
