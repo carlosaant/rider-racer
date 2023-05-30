@@ -84,6 +84,7 @@ nav {
 .infoDetails {
   font-size: calc(var(--info-font-size) + 0.2rem);
   font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 .dateInfo {
   font-size: var(--date-font-size);
