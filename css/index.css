@@ -60,7 +60,6 @@ nav {
   border-radius: 5px;
   border: 1px solid transparent;
   display: flex;
-  align-items: center;
   gap: 1rem;
   font-size: var(--info-font-size);
 }
@@ -69,6 +68,11 @@ nav {
   width: 7rem;
   height: 7rem;
   background-color: grey;
+}
+.dataInfosDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .cityInfo {
