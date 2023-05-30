@@ -24,6 +24,7 @@ nav {
   align-self: end;
   position: fixed;
   bottom: 2.5rem;
+  right: 2.5rem;
   z-index: 999;
 }
 
@@ -42,4 +43,43 @@ nav {
   position: absolute;
   left: 0.8rem;
   border-radius: 5px;
+}
+
+#rideList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  font-size: 1.4rem;
+}
+
+#rideList li {
+  background-color: #fff;
+  color: var(--primary-color);
+  padding: 1rem;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: var(--info-font-size);
+}
+
+.mapDiv {
+  width: 7rem;
+  height: 7rem;
+  background-color: grey;
+}
+
+.cityInfo {
+  font-size: var(--cityInfo-font-size);
+  color: var(--suport-color);
+}
+.infoDetails {
+  font-size: var(--info-font-size);
+  color: var(--primary-color);
+}
+.dateInfo {
+  font-size: var(--date-font-size);
+  color: #808080;
 }
