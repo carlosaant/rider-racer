@@ -79,10 +79,11 @@ nav {
 .cityInfo {
   font-size: var(--cityInfo-font-size);
   color: var(--suport-color);
+  margin-bottom: 0.5rem;
 }
 .infoDetails {
-  font-size: var(--info-font-size);
-  color: var(--primary-color);
+  font-size: calc(var(--info-font-size) + 0.2rem);
+  font-weight: bold;
 }
 .dateInfo {
   font-size: var(--date-font-size);
