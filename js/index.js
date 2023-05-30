@@ -61,6 +61,24 @@ document.addEventListener('DOMContentLoaded', function () {
         latitude: positions[i + 1].latitude,
         longitude: positions[i + 1].longitude
       };
+
+      const deltaLatitude = toRadius(p2.latitude - p1.latitude);
+      const deltaLongitude = toRadius(p2.longitude - p1.longitude);
+      const a =
+        Math.sin(deltaLatitude / 2) * Math.sin(deltaLatitude / 2) +
+        Math.sin(deltaLongitude / 2) *
+          Math.sin(deltaLongitude / 2) *
+          Math.cos(toRadius(p1.latitude)) *
+          Math.cos(toRadius(p1.latitude));
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      const distance = earthRadiusKm * c;
+      totalDistance += distance;
     }
+
+    function toRadius(degree) {
+      return (degree * Math.PI) / 180;
+    }
+
+    return totalDistance;
   }
 });
