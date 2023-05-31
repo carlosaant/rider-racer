@@ -14,26 +14,32 @@ document.addEventListener('DOMContentLoaded', function () {
       // Lógica para parar a ação
       if (confirm('Deseja parar o percurso?')) {
         if (!watchId) return;
-        //
         isRunning = false;
         btnStartStop.textContent = 'Start';
-        //
         stopSpeedometer();
         stopNavigator();
       }
     } else {
       // Lógica para iniciar a ação
-      if (navigator.geolocation) {
-        if (watchId) return;
-        //
-        isRunning = true;
-        btnStartStop.textContent = 'Stop';
-        //
-        startSpeedometer();
-        startNavigator();
-      } else {
-        alert('A Geolocalização não é suportada pelo navegador.');
-      }
+      navigator.geolocation.getCurrentPosition(
+        function () {
+          if (watchId) return;
+          isRunning = true;
+          btnStartStop.textContent = 'Stop';
+          startSpeedometer();
+          startNavigator();
+        },
+        // Função de erro - a permissão foi negada ou ocorreu um erro
+        function (error) {
+          if (error.code === error.PERMISSION_DENIED) {
+            alert(
+              'Acesso à localização negado. Por favor, verifique as configurações de privacidade do seu navegador para permitir a geolocalização e atualize a página.'
+            );
+          } else {
+            console.log('Erro ao obter a localização:', error.message);
+          }
+        }
+      );
     }
   });
 
@@ -48,6 +54,8 @@ document.addEventListener('DOMContentLoaded', function () {
     function handleError(error) {
       console.log(`ERROR(${error.code}): ${error.message}`);
       if (error.code == 1) {
+        stopSpeedometer();
+        removeCurrentRide(currentRide);
         alert(
           'Acesso à localização negado. Por favor, verifique as configurações de privacidade do seu navegador para permitir a geolocalização e atualize a página.'
         );
