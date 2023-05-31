@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     function handleError(error) {
       console.log(`ERROR(${error.code}): ${error.message}`);
-      if (error.code == 1) {
+      if (error.code === error.PERMISSION_DENIED) {
         stopSpeedometer();
         removeCurrentRide(currentRide);
         alert(
