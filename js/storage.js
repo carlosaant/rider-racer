@@ -42,6 +42,10 @@ function updateStopTime(rideID) {
   setLocalStorage(rideID, rideRecord);
 }
 
+function removeCurrentRide(rideID) {
+  localStorage.removeItem(rideID);
+}
+
 function getAllRides() {
   if (localStorage.length === 0) return null;
   else return Object.entries(localStorage);
