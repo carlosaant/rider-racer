@@ -49,7 +49,12 @@ document.addEventListener('DOMContentLoaded', function () {
         itemElement.appendChild(contentInfosDiv);
         listRideElement.appendChild(itemElement);
       });
-    } else console.log('não ha itens a exibir');
+    } else {
+      const noFoundElement = document.createElement('div');
+      noFoundElement.classList.add('noRecordsDiv');
+      noFoundElement.innerText = 'No Records found.';
+      listRideElement.appendChild(noFoundElement);
+    }
   }
 
   async function getLocationData(longitude, latitude) {
