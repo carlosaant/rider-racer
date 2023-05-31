@@ -90,3 +90,7 @@ nav {
   font-size: var(--date-font-size);
   color: #808080;
 }
+.noRecordsDiv {
+  align-self: center;
+  margin-top: 5rem;
+}
