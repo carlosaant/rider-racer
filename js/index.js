@@ -8,15 +8,18 @@ document.addEventListener('DOMContentLoaded', function () {
     if (allRides) {
       allRides.forEach(async ([id, value]) => {
         const ride = JSON.parse(value);
+        ride.id = id;
+
+        const itemElement = document.createElement('li');
+        itemElement.id = ride.id;
+        listRideElement.appendChild(itemElement);
+
         const firstPosition = ride.data[0]; //o primeiro registro para determinar a cidade
         const firstLocationData = await getLocationData(
           firstPosition.longitude,
           firstPosition.latitude
         );
 
-        ride.id = id;
-        const itemElement = document.createElement('li');
-        itemElement.id = ride.id;
         const mapDiv = document.createElement('div');
         const contentInfosDiv = document.createElement('div');
         mapDiv.classList.add('mapDiv');
@@ -47,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function () {
         contentInfosDiv.appendChild(dateDiv);
         itemElement.appendChild(mapDiv);
         itemElement.appendChild(contentInfosDiv);
-        listRideElement.appendChild(itemElement);
       });
     } else {
       const noFoundElement = document.createElement('div');
