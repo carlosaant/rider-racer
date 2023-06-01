@@ -12,13 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
   btnStartStop.addEventListener('click', () => {
     if (isRunning) {
       // Lógica para parar a ação
-      if (confirm('Deseja parar o percurso?')) {
-        if (!watchId) return;
-        isRunning = false;
-        btnStartStop.textContent = 'Start';
-        stopSpeedometer();
-        stopNavigator();
-      }
+      showConfirmation('Finish the route?').then(response => {
+        if (response) {
+          isRunning = false;
+          btnStartStop.textContent = 'Start';
+          stopSpeedometer();
+          stopNavigator();
+        }
+      });
     } else {
       // Lógica para iniciar a ação
       navigator.geolocation.getCurrentPosition(
@@ -33,10 +34,10 @@ document.addEventListener('DOMContentLoaded', function () {
         function (error) {
           if (error.code === error.PERMISSION_DENIED) {
             alert(
-              'Acesso à localização negado. Por favor, verifique as configurações de privacidade do seu navegador para permitir a geolocalização e atualize a página.'
+              `Location access denied. Please check your browser's privacy settings to allow geolocation and refresh the page.`
             );
           } else {
-            console.log('Erro ao obter a localização:', error.message);
+            console.log('Error while retrieving location:', error.message);
           }
         }
       );
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
         stopSpeedometer();
         removeCurrentRide(currentRide);
         alert(
-          'Acesso à localização negado. Por favor, verifique as configurações de privacidade do seu navegador para permitir a geolocalização e atualize a página.'
+          `Location access denied. Please check your browser's privacy settings to allow geolocation and refresh the page.`
         );
       }
     }
@@ -100,5 +101,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function padZero(number) {
     return (number < 10 ? '0' : '') + number;
+  }
+  function showConfirmation(message) {
+    return new Promise((resolve, reject) => {
+      const confirmationBox = document.createElement('div');
+      confirmationBox.classList.add('confirmationBox');
+      confirmationBox.innerHTML = `
+        <p>${message}</p>
+        <button id="finishBtn">Finish</button>
+        <button id="cancelBtn">Cancel</button>
+      `;
+
+      const bodyElementWrapper = document.querySelector('.wrapper');
+      bodyElementWrapper.appendChild(confirmationBox);
+
+      document.getElementById('finishBtn').addEventListener('click', () => {
+        resolve(true);
+        bodyElementWrapper.removeChild(confirmationBox);
+      });
+      document.getElementById('cancelBtn').addEventListener('click', () => {
+        resolve(false);
+        bodyElementWrapper.removeChild(confirmationBox);
+      });
+    });
   }
 });
