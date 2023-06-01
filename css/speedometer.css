@@ -106,7 +106,8 @@ nav {
 .confirmationBox p {
   display: block;
   font-weight: bold;
-  font-size: calc(var(--info-font-size) + 0.6rem);
+  font-size: calc(var(--info-font-size) + 0.8rem);
+  color: var(--primary-color);
   padding-bottom: 3rem;
 }
 
@@ -118,6 +119,9 @@ nav {
   color: var(--text-color);
   font-size: calc(var(--info-font-size) + 0.6rem);
   text-transform: uppercase;
+}
+.confirmationBox button:nth-child(2) {
+  border: 0.1rem solid var(--text-color);
 }
 
 @keyframes boxFadeIn {
