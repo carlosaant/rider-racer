@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let currentRide = null;
   const speedElement = document.querySelector('#speed');
   const btnStartStop = document.querySelector('#btnStartstop');
+  const btnClose = document.querySelector('.btn-close');
   const counterElement = document.querySelector('#counter');
 
   btnStartStop.addEventListener('click', () => {
@@ -45,6 +46,13 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         }
       );
+    }
+  });
+
+  btnClose.addEventListener('click', () => {
+    if (isRunning) {
+      stopSpeedometer();
+      stopNavigator();
     }
   });
 
