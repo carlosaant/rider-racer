@@ -12,12 +12,16 @@ document.addEventListener('DOMContentLoaded', function () {
   btnStartStop.addEventListener('click', () => {
     if (isRunning) {
       // Lógica para parar a ação
+      disableEnableButtonsOnScreen();
       showConfirmation('Finish the route?').then(response => {
         if (response) {
           isRunning = false;
           btnStartStop.textContent = 'Start';
           stopSpeedometer();
           stopNavigator();
+          disableEnableButtonsOnScreen();
+        } else {
+          disableEnableButtonsOnScreen();
         }
       });
     } else {
@@ -124,5 +128,10 @@ document.addEventListener('DOMContentLoaded', function () {
         bodyElementWrapper.removeChild(confirmationBox);
       });
     });
+  }
+
+  function disableEnableButtonsOnScreen() {
+    if (!btnStartStop.disabled) btnStartStop.disabled = true;
+    else btnStartStop.disabled = false;
   }
 });
