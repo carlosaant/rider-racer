@@ -59,19 +59,6 @@ nav {
   font-size: var(--speedometer-font-size);
   /* position: relative; */
 }
-/* #speed::before {
-  content: '';
-  display: block;
-  background-color: var(--details-color);
-  width: calc(var(--height-speedometer) - 5rem);
-  height: calc(var(--height-speedometer) - 5rem);
-  border-radius: 50%;
-  z-index: -1;
-
-  position: absolute;
-  top: -3.3rem;
-  left: -2.2rem;
-} */
 
 .timer {
   display: flex;
@@ -102,4 +89,42 @@ nav {
 .controls button:active {
   background-color: var(--primary-color);
   color: var(--text-color);
+}
+
+.confirmationBox {
+  position: absolute;
+  align-self: center;
+
+  z-index: 999;
+  padding: 2rem;
+  background-color: var(--suport-color);
+  text-align: center;
+  border-radius: 5px;
+  border: 0.1rem solid var(--text-color);
+  animation: boxFadeIn 0.5s;
+}
+.confirmationBox p {
+  display: block;
+  font-weight: bold;
+  font-size: calc(var(--info-font-size) + 0.6rem);
+  padding-bottom: 3rem;
+}
+
+.confirmationBox button {
+  background-color: var(--primary-color);
+  border: none;
+  padding-block: 1rem;
+  padding-inline: 3.5rem;
+  color: var(--text-color);
+  font-size: calc(var(--info-font-size) + 0.6rem);
+  text-transform: uppercase;
+}
+
+@keyframes boxFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
