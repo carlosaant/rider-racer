@@ -1,7 +1,7 @@
 nav {
   display: flex;
   justify-content: flex-end;
-  padding-top: var(--padding-padrao);
+  padding-top: calc(var(--padding-padrao) - 1rem);
 }
 
 .btn-close {
@@ -72,6 +72,7 @@ nav {
   padding-block: calc(var(--padding-padrao) - 4rem);
   display: flex;
   justify-content: center;
+  margin-bottom: calc(var(--padding-padrao) - 4rem);
 }
 
 .controls button {
