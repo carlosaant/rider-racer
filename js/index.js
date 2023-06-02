@@ -13,6 +13,10 @@ document.addEventListener('DOMContentLoaded', function () {
         itemElement.id = ride.id;
         listRideElement.appendChild(itemElement);
 
+        itemElement.addEventListener('click', () => {
+          window.location.href = `./detail.html?id=${ride.id}`;
+        });
+
         const firstPosition = ride.data[0]; //o primeiro registro para determinar a cidade
         const firstLocationData = await getLocationData(
           firstPosition.longitude,
