@@ -4,6 +4,7 @@ body {
 
 .wrapper {
   justify-content: flex-start;
+  padding-bottom: 2rem;
 }
 
 nav {
@@ -68,7 +69,7 @@ nav {
 #detailData {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  flex-grow: 1;
   gap: 1.5rem;
   background-color: #fff;
   padding: 1rem;
