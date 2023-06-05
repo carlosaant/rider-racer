@@ -1,3 +1,88 @@
 body {
   color: var(--text-color);
 }
+
+.wrapper {
+  justify-content: flex-start;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: calc(var(--padding-padrao) - 1rem);
+}
+
+.btn-close {
+  display: block;
+  padding: 1.2rem 2rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 3rem;
+}
+
+.btn-close::before {
+  content: '';
+  display: block;
+  position: relative;
+  width: 4rem;
+  height: 0.2rem;
+  background-color: var(--suport-color);
+  padding-top: 0.1rem;
+  left: -2rem;
+  transform: rotate(45deg);
+}
+.btn-close::after {
+  content: '';
+  display: block;
+  position: relative;
+  width: 4rem;
+  height: 0.2rem;
+  background-color: var(--suport-color);
+  padding-top: 0.1rem;
+  left: -2rem;
+  top: -0.4rem;
+  transform: rotate(-45deg);
+}
+
+.detailTitle {
+  font-size: var(--tittle-font-size);
+  text-align: center;
+  padding-block: 2rem;
+}
+
+#detailData {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: var(--details-color);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.mapDiv {
+  width: 100%;
+  height: 20rem;
+  background-color: grey;
+}
+.dataInfosDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.cityInfo {
+  font-size: calc(var(--cityInfo-font-size) + 1.2rem);
+  margin-bottom: 0.5rem;
+}
+.infoDetails {
+  font-size: calc(var(--info-font-size) + 1rem);
+}
+.dateInfo {
+  font-size: var(--date-font-size);
+}
+.noRecordsDiv {
+  align-self: center;
+  margin-top: 5rem;
+}
