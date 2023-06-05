@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     contentInfosDiv.appendChild(maxSpeedDiv);
     contentInfosDiv.appendChild(distanceDiv);
     contentInfosDiv.appendChild(durationDiv);
-    contentInfosDiv.appendChild(dateDiv);
+    detailDataDiv.appendChild(dateDiv);
     detailDataDiv.appendChild(mapDiv);
     detailDataDiv.appendChild(contentInfosDiv);
   }

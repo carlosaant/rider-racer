@@ -74,13 +74,13 @@ nav {
 
 .cityInfo {
   font-size: calc(var(--cityInfo-font-size) + 1.2rem);
-  margin-bottom: 0.5rem;
 }
 .infoDetails {
   font-size: calc(var(--info-font-size) + 1rem);
 }
 .dateInfo {
-  font-size: var(--date-font-size);
+  font-size: calc(var(--date-font-size) + 0.2rem);
+  align-self: end;
 }
 .noRecordsDiv {
   align-self: center;
