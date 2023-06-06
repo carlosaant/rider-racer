@@ -9,8 +9,20 @@ body {
 nav {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 1rem;
   padding-block: calc(var(--padding-padrao) - 2rem);
   /* background-color: var(--details-color); */
+}
+
+nav img {
+  max-width: 5rem;
+}
+nav h1 {
+  font-size: var(--tittle-font-size);
+}
+nav h1::first-letter {
+  color: var(--suport-color);
 }
 
 #btn-newRide {
