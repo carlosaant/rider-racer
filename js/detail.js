@@ -48,6 +48,14 @@ document.addEventListener('DOMContentLoaded', function () {
     detailDataDiv.appendChild(dateDiv);
     detailDataDiv.appendChild(contentInfosDiv);
 
+    // delete
+    btnDelete.addEventListener('click', () => {
+      if (confirm('delete this record?')) {
+        removeCurrentRide(rideID);
+        window.location.href = './';
+      }
+    });
+
     // map
     const map = L.map('mapDetail');
     map.setView([firstPosition.latitude, firstPosition.longitude], 15);
