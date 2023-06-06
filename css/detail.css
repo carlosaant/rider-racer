@@ -4,13 +4,12 @@ body {
 
 .wrapper {
   justify-content: flex-start;
-  padding-bottom: 2rem;
+  padding-block: 2.1rem;
 }
 
 nav {
   display: flex;
   justify-content: flex-end;
-  padding-top: calc(var(--padding-padrao) - 1rem);
 }
 
 .btn-close {
