@@ -6,9 +6,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const allRides = getAllRides();
 
     if (allRides) {
+      let countRegisters = 0;
       allRides.forEach(async ([id, value]) => {
         const ride = JSON.parse(value);
         ride.id = id;
+        countRegisters++;
 
         const itemElement = document.createElement('li');
         itemElement.id = ride.id;
@@ -75,6 +77,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         itemElement.removeChild(itemElement.firstChild);
       });
+
+      const countDiv = document.createElement('div');
+      countDiv.classList.add('registersdiv');
+      countDiv.innerText = `${countRegisters} records found.`;
+      listRideElement.appendChild(countDiv);
     } else {
       const noFoundElement = document.createElement('div');
       noFoundElement.classList.add('noRecordsDiv');
