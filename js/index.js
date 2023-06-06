@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const allRides = getAllRides();
     if (allRides) {
       allRides.forEach(async ([id, value]) => {
+        // loading
+        showLoading();
+        //
         const ride = JSON.parse(value);
         ride.id = id;
 
@@ -53,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
         contentInfosDiv.appendChild(dateDiv);
         itemElement.appendChild(mapDiv);
         itemElement.appendChild(contentInfosDiv);
+        hideLoading();
       });
     } else {
       const noFoundElement = document.createElement('div');
@@ -60,5 +64,19 @@ document.addEventListener('DOMContentLoaded', function () {
       noFoundElement.innerText = 'No Records found.';
       listRideElement.appendChild(noFoundElement);
     }
+  }
+
+  function showLoading() {
+    let loadingContainer = document.getElementById('loadingContainer');
+    let loadingElement = document.createElement('div');
+    loadingElement.classList.add('loading');
+    loadingContainer.appendChild(loadingElement);
+    listRideElement.classList.add('hide');
+  }
+  function hideLoading() {
+    let loadingContainer = document.getElementById('loadingContainer');
+    loadingContainer.innerHTML = '';
+    listRideElement.classList.remove('hide');
+    listRideElement.classList.add('show');
   }
 });
