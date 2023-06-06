@@ -1,5 +1,6 @@
 'use strict';
 document.addEventListener('DOMContentLoaded', function () {
+  const btnDelete = document.getElementById('btn-delete');
   const params = new URLSearchParams(window.location.search);
   const rideID = params.get('id');
   if (rideID != null) {
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   async function loadData(ride) {
+    showLoading();
     const detailDataDiv = document.getElementById('detailData');
 
     const firstPosition = ride.data[0]; //o primeiro registro para determinar a cidade
@@ -59,5 +61,22 @@ document.addEventListener('DOMContentLoaded', function () {
     const polyline = L.polyline(positionsArray, { color: '#F00' });
     polyline.addTo(map);
     map.fitBounds(polyline.getBounds());
+    hideLoading(detailDataDiv);
+  }
+
+  function showLoading() {
+    let loadingContainer = document.getElementById('loadingContainer');
+    let loadingElement = document.createElement('div');
+    loadingElement.classList.add('loading');
+    btnDelete.classList.add('hide');
+    loadingContainer.appendChild(loadingElement);
+  }
+  function hideLoading(detailDataDiv) {
+    let loadingContainer = document.getElementById('loadingContainer');
+    loadingContainer.innerHTML = '';
+    detailDataDiv.classList.remove('hide');
+    detailDataDiv.classList.add('show');
+    btnDelete.classList.remove('hide');
+    btnDelete.classList.add('show');
   }
 });
