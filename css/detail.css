@@ -55,7 +55,7 @@ nav {
   border: none;
   font-size: calc(var(--button-font-size) - 1rem);
   font-weight: bold;
-  background-color: var(--warning-color);
+  background-color: var(--suport-color);
   color: #fff;
   border-radius: 1px;
 }
@@ -97,10 +97,4 @@ nav {
 .noRecordsDiv {
   align-self: center;
   margin-top: 5rem;
-}
-.hide {
-  opacity: 0;
-}
-.show {
-  opacity: 1;
 }
