@@ -18,9 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
       firstPosition.latitude
     );
 
-    const mapDiv = document.createElement('div');
     const contentInfosDiv = document.createElement('div');
-    mapDiv.classList.add('mapDiv');
     contentInfosDiv.classList.add('dataInfosDiv');
 
     const cityDiv = document.createElement('div');
@@ -46,7 +44,20 @@ document.addEventListener('DOMContentLoaded', function () {
     contentInfosDiv.appendChild(distanceDiv);
     contentInfosDiv.appendChild(durationDiv);
     detailDataDiv.appendChild(dateDiv);
-    detailDataDiv.appendChild(mapDiv);
     detailDataDiv.appendChild(contentInfosDiv);
+
+    // map
+    const map = L.map('mapDetail');
+    map.setView([firstPosition.latitude, firstPosition.longitude], 15);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      minZoom: 5,
+      maxZoom: 19
+    }).addTo(map);
+    const positionsArray = ride.data.map(position => {
+      return [position.latitude, position.longitude];
+    });
+    const polyline = L.polyline(positionsArray, { color: '#F00' });
+    polyline.addTo(map);
+    map.fitBounds(polyline.getBounds());
   }
 });
