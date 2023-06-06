@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
           stopSpeedometer();
           stopNavigator();
           disableEnableButtonsOnScreen();
+          window.location.href = './';
         } else {
           disableEnableButtonsOnScreen();
         }
