@@ -100,3 +100,9 @@ nav {
   border: 4px solid var(--text-color);
   border-top: 4px solid var(--suport-color);
 }
+
+.registersdiv {
+  align-self: center;
+  padding-block: 1rem;
+  font-size: var(--date-font-size);
+}
