@@ -25,9 +25,12 @@ document.addEventListener('DOMContentLoaded', function () {
           firstPosition.latitude
         );
 
+        const mapID = `map${ride.id}`;
         const mapDiv = document.createElement('div');
-        const contentInfosDiv = document.createElement('div');
+        mapDiv.id = mapID;
         mapDiv.classList.add('mapDiv');
+
+        const contentInfosDiv = document.createElement('div');
         contentInfosDiv.classList.add('dataInfosDiv');
 
         const cityDiv = document.createElement('div');
@@ -55,6 +58,20 @@ document.addEventListener('DOMContentLoaded', function () {
         contentInfosDiv.appendChild(dateDiv);
         itemElement.appendChild(mapDiv);
         itemElement.appendChild(contentInfosDiv);
+
+        // map
+        const map = L.map(mapID, {
+          zoomControl: false,
+          dragging: false,
+          attributionControl: false,
+          scrollWheelZoom: false
+        });
+        map.setView([firstPosition.latitude, firstPosition.longitude], 13);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          minZoom: 5,
+          maxZoom: 19
+        }).addTo(map);
+        L.marker([firstPosition.latitude, firstPosition.longitude]).addTo(map);
 
         itemElement.removeChild(itemElement.firstChild);
       });
