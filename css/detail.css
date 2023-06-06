@@ -59,13 +59,6 @@ nav {
   border-radius: 1px;
 }
 
-.detailTitle {
-  font-size: var(--tittle-font-size);
-  color: var(--text-color);
-  text-align: center;
-  padding-block: 2rem;
-}
-
 #detailData {
   display: flex;
   flex-direction: column;
@@ -73,6 +66,7 @@ nav {
   gap: 1.5rem;
   background-color: #fff;
   padding: 1rem;
+  margin-top: 1.5rem;
   border-radius: 5px;
   box-shadow: 0.3rem 0.3rem var(--text-color);
 }
