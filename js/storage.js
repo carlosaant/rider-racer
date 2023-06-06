@@ -48,5 +48,23 @@ function removeCurrentRide(rideID) {
 
 function getAllRides() {
   if (localStorage.length === 0) return null;
-  else return Object.entries(localStorage);
+  else {
+    const filteredEntries = Object.entries(localStorage).filter(
+      ([key, value]) => {
+        if (typeof value === 'string') {
+          try {
+            const parsedValue = JSON.parse(value);
+            return parsedValue.hasOwnProperty('data'); // Filtrar por objetos que possuem a propriedade 'data'
+          } catch (error) {
+            return false; // Ignorar valores que não são JSON válidos
+          }
+        }
+        return false; // Ignorar valores que não são strings
+      }
+    );
+
+    return filteredEntries;
+  }
+  // if (localStorage.length === 0) return null;
+  // else return Object.entries(localStorage);
 }
