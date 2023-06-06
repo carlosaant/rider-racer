@@ -73,19 +73,22 @@ nav h1::first-letter {
   border-radius: 5px;
   border: 1px solid transparent;
   display: flex;
+  align-items: center;
   gap: 1rem;
   font-size: var(--info-font-size);
 }
 
 .mapDiv {
-  width: 7rem;
-  height: 7rem;
+  width: 8rem;
+  height: 8rem;
   background-color: grey;
 }
 .dataInfosDiv {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  gap: 0.4rem;
+  flex-grow: 1;
 }
 
 .cityInfo {
@@ -96,11 +99,20 @@ nav h1::first-letter {
 .infoDetails {
   font-size: calc(var(--info-font-size) + 0.2rem);
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
 }
+
+.infoDetails img {
+  max-width: 1.5rem;
+}
+
 .dateInfo {
   font-size: var(--date-font-size);
   color: #808080;
+  align-self: flex-end;
+  padding-top: 0.5rem;
 }
 .noRecordsDiv {
   align-self: center;
