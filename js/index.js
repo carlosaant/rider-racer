@@ -4,17 +4,16 @@ document.addEventListener('DOMContentLoaded', function () {
   loadList();
   function loadList() {
     const allRides = getAllRides();
+
     if (allRides) {
       allRides.forEach(async ([id, value]) => {
-        // loading
-        showLoading();
-        //
         const ride = JSON.parse(value);
         ride.id = id;
 
         const itemElement = document.createElement('li');
         itemElement.id = ride.id;
         listRideElement.appendChild(itemElement);
+        showLoading(itemElement);
 
         itemElement.addEventListener('click', () => {
           window.location.href = `./detail.html?id=${ride.id}`;
@@ -56,7 +55,8 @@ document.addEventListener('DOMContentLoaded', function () {
         contentInfosDiv.appendChild(dateDiv);
         itemElement.appendChild(mapDiv);
         itemElement.appendChild(contentInfosDiv);
-        hideLoading();
+
+        itemElement.removeChild(itemElement.firstChild);
       });
     } else {
       const noFoundElement = document.createElement('div');
@@ -66,17 +66,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  function showLoading() {
-    let loadingContainer = document.getElementById('loadingContainer');
-    let loadingElement = document.createElement('div');
+  function showLoading(element) {
+    const loadingElement = document.createElement('div');
     loadingElement.classList.add('loading');
-    loadingContainer.appendChild(loadingElement);
-    listRideElement.classList.add('hide');
-  }
-  function hideLoading() {
-    let loadingContainer = document.getElementById('loadingContainer');
-    loadingContainer.innerHTML = '';
-    listRideElement.classList.remove('hide');
-    listRideElement.classList.add('show');
+    element.appendChild(loadingElement);
   }
 });
