@@ -73,8 +73,9 @@ nav {
 
 .mapDiv {
   width: 100%;
-  height: 20rem;
-  background-color: grey;
+  height: 23rem;
+  border-radius: 0.5rem;
+  background-color: #808080;
 }
 .dataInfosDiv {
   display: flex;
