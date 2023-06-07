@@ -97,6 +97,11 @@ nav {
   gap: 1rem;
   padding-left: 1rem;
 }
+
+.infoDetails img {
+  max-width: 2.5rem;
+}
+
 .dateInfo {
   font-size: calc(var(--date-font-size) + 0.2rem);
   align-self: end;
