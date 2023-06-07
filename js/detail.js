@@ -28,24 +28,44 @@ document.addEventListener('DOMContentLoaded', function () {
     cityDiv.classList.add('cityInfo');
 
     const maxSpeedDiv = document.createElement('div');
-    maxSpeedDiv.innerText = `Max. Speed: ${getMaxSpeed(ride.data)} Km/h`;
     maxSpeedDiv.classList.add('infoDetails');
+    const iconSpeed = document.createElement('img');
+    iconSpeed.src = './assets/images/icon-speed.svg';
+    maxSpeedDiv.appendChild(iconSpeed);
+    const speedText = document.createTextNode(
+      `Max: ${getMaxSpeed(ride.data)} Km/h`
+    );
+    maxSpeedDiv.appendChild(speedText);
 
     const distanceDiv = document.createElement('div');
-    distanceDiv.innerText = `Distance: ${getDistance(ride.data)} Km`;
+    distanceDiv.classList.add('infoDetails');
+    const iconDistance = document.createElement('img');
+    iconDistance.src = './assets/images/icon-distance.svg';
+    distanceDiv.appendChild(iconDistance);
+    const distanceText = document.createTextNode(
+      `Distance: ${getDistance(ride.data)} Km`
+    );
+    distanceDiv.appendChild(distanceText);
 
     const durationDiv = document.createElement('div');
-    durationDiv.innerText = `Duration: ${getDuration(ride)}`;
+    durationDiv.classList.add('infoDetails');
+    const iconDuration = document.createElement('img');
+    iconDuration.src = './assets/images/icon-duration.svg';
+    durationDiv.appendChild(iconDuration);
+    const durationText = document.createTextNode(
+      `Duration: ${getDuration(ride)}`
+    );
+    durationDiv.appendChild(durationText);
 
     const dateDiv = document.createElement('div');
     dateDiv.innerText = getStartDate(ride);
     dateDiv.classList.add('dateInfo');
 
-    contentInfosDiv.appendChild(cityDiv);
     contentInfosDiv.appendChild(maxSpeedDiv);
     contentInfosDiv.appendChild(distanceDiv);
     contentInfosDiv.appendChild(durationDiv);
     detailDataDiv.appendChild(dateDiv);
+    detailDataDiv.appendChild(cityDiv);
     detailDataDiv.appendChild(contentInfosDiv);
 
     // delete
